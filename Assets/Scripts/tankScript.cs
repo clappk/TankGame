@@ -1,12 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-public class tankScript : MonoBehaviour {
+using UnityEngine.Networking;
+public class tankScript : NetworkBehaviour {
     float moveSpeed = 3;
 	// Use this for initialization
 	void Start () {
-		
+		if (!isLocalPlayer) {
+			Destroy (this);
+			return;
+		}
 	}
 	
 	// Update is called once per frame
